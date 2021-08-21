@@ -1,2 +1,2 @@
 # LyricsBot
-Discord bot getting lyrics of a song.
+Discord bot for getting lyrics of a song.
