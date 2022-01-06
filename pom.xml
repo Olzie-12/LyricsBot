@@ -64,7 +64,7 @@
         </repository>
         <repository>
             <id>olzie-repo</id>
-            <url>https://maven.olziedev.com/</url>
+            <url>https://repo.olziedev.com/</url>
         </repository>
     </repositories>
     <build>
