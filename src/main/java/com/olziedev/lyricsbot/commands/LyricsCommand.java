@@ -8,7 +8,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import com.olziedev.lyricsbot.utils.Info;
 import com.olziedev.olziecommand.framework.CommandExecutor;
-import com.olziedev.olziecommand.framework.FrameworkCommand;
+import com.olziedev.olziecommand.framework.api.FrameworkCommand;
 
 import java.awt.*;
 
