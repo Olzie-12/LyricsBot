@@ -32,5 +32,5 @@ public class LyricsBot extends ListenerAdapter {
         builder.build();
     }
 
-    public static File getDataFile() { return new File("jars/Lyrics Bot"); }
+    public static File getDataFile() { return new File("Lyrics Bot"); }
 }
