@@ -20,7 +20,7 @@ public class LyricsCommand extends SlashCommand {
         super("lyrics");
         this.setDescription("Show the lyrics of a song.");
         this.setSyntax("**%label% <song>**: %description%");
-        this.addOption(new OptionData(OptionType.STRING, "song", "The name of the song."));
+        this.addOption(new OptionData(OptionType.STRING, "song", "The name of the song.", true));
     }
 
     @Override
