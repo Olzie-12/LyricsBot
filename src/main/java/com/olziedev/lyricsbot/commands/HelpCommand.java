@@ -1,14 +1,14 @@
 package com.olziedev.lyricsbot.commands;
 
-import net.dv8tion.jda.api.EmbedBuilder;
-import com.olziedev.olziecommand.OlzieCommand;
-import com.olziedev.olziecommand.framework.CommandExecutor;
 import com.olziedev.olziecommand.framework.api.FrameworkCommand;
+import com.olziedev.olziecommand.framework.api.slash.SlashCommand;
+import com.olziedev.olziecommand.framework.executor.SlashExecutor;
+import net.dv8tion.jda.api.EmbedBuilder;
 
 import java.awt.*;
 import java.time.Instant;
 
-public class HelpCommand extends FrameworkCommand {
+public class HelpCommand extends SlashCommand {
 
     public HelpCommand() {
         super("help");
@@ -17,7 +17,7 @@ public class HelpCommand extends FrameworkCommand {
     }
 
     @Override
-    public void onExecute(CommandExecutor cmd) {
+    public void onExecute(SlashExecutor cmd) {
         EmbedBuilder eb = new EmbedBuilder()
                 .setTitle("General Commands")
                 .setColor(new Color((int) (Math.random() * 0x1000000)))

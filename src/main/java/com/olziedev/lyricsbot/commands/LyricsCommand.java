@@ -3,25 +3,28 @@ package com.olziedev.lyricsbot.commands;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.olziedev.lyricsbot.utils.Info;
+import com.olziedev.olziecommand.framework.api.slash.SlashCommand;
+import com.olziedev.olziecommand.framework.executor.SlashExecutor;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.interactions.commands.OptionType;
+import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import com.olziedev.lyricsbot.utils.Info;
-import com.olziedev.olziecommand.framework.CommandExecutor;
-import com.olziedev.olziecommand.framework.api.FrameworkCommand;
 
 import java.awt.*;
 
-public class LyricsCommand extends FrameworkCommand {
+public class LyricsCommand extends SlashCommand {
 
     public LyricsCommand() {
         super("lyrics");
         this.setDescription("Show the lyrics of a song.");
         this.setSyntax("**%label% <song>**: %description%");
+        this.addOption(new OptionData(OptionType.STRING, "song", "The name of the song."));
     }
 
     @Override
-    public void onExecute(CommandExecutor cmd) {
+    public void onExecute(SlashExecutor cmd) {
         new Thread(() -> {
             String[] args = cmd.getArguments();
             if (args.length == 0) {

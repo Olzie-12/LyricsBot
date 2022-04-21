@@ -18,7 +18,7 @@ public class LyricsBot extends ListenerAdapter {
 
     @Override
     public void onReady(ReadyEvent event) {
-        new OlzieCommand(event.getJDA(), LyricsBot.class, "!", null).getActionRegister()
+        new OlzieCommand(event.getJDA(), LyricsBot.class, "!", null, true).getActionRegister()
                 .registerAction(CommandActionType.SYNTAX, cmd -> new EmbedBuilder()
                         .addField("**Syntax Error**", "%syntax%", false)
                         .setColor(Color.RED)
