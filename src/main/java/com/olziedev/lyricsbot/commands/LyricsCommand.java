@@ -45,7 +45,7 @@ public class LyricsCommand extends SlashCommand {
                 String lyrics = data.get("lyrics").getAsString();
                 if (lyrics.length() > 2048) lyrics = lyrics.substring(0, 2048);
 
-                cmd.getChannel().sendMessage(new EmbedBuilder()
+                cmd.replyEmbeds(new EmbedBuilder()
                         .setDescription(lyrics)
                         .setFooter("Lyrics provided by KSoft.API").setColor(Color.GREEN).build()).queue();
 

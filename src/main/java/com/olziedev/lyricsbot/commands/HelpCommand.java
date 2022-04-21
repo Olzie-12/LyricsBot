@@ -26,6 +26,6 @@ public class HelpCommand extends SlashCommand {
         for (FrameworkCommand cmds : olzieCommand.getCommands()) {
             eb.addField(olzieCommand.getPrefix() + cmds.getName(), cmds.getDescription(), true);
         }
-        cmd.getChannel().sendMessage(eb.build()).queue();
+        cmd.replyEmbeds(eb.build()).queue();
     }
 }
