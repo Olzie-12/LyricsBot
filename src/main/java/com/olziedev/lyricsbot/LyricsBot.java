@@ -8,6 +8,7 @@ import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.requests.GatewayIntent;
+import net.dv8tion.jda.internal.utils.JDALogger;
 
 import java.awt.*;
 import java.io.File;
@@ -18,7 +19,7 @@ public class LyricsBot extends ListenerAdapter {
 
     @Override
     public void onReady(ReadyEvent event) {
-        new OlzieCommand(event.getJDA(), LyricsBot.class, "!", null, true).getActionRegister()
+        new OlzieCommand(event.getJDA(), LyricsBot.class, null, JDALogger.getLog("LyricsBot")).getActionRegister()
                 .registerAction(CommandActionType.SYNTAX, cmd -> new EmbedBuilder()
                         .addField("**Syntax Error**", "%syntax%", false)
                         .setColor(Color.RED)
