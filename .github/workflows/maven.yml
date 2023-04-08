@@ -1,0 +1,39 @@
+name: Maven
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 8
+        uses: actions/setup-java@v3
+        with:
+          java-version: 8
+          distribution: 'liberica'
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: 'liberica'
+      - name: Cache local Maven repository
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-:  
+      - name: Build with Maven
+        run: mvn clean install --file pom.xml
+      - name: Move Jar
+        run: | 
+          mkdir target/bot/
+          mv target/LyricsBot.jar target/bot/
+      - name: Deploy to FTP
+        uses: Olzie-12/FTP-Deploy-Action@4.3.2
+        with:
+          local-dir: target/bot/
+          server: ${{secrets.FTP_IP_BOTS}}
+          server-dir: ${{secrets.FTP_PATH_BOTS}}
+          username: ${{secrets.FTP_USERNAME_BOTS}}
+          password: ${{secrets.FTP_PASSWORD_BOTS}}
